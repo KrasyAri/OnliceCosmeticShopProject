@@ -1,4 +1,4 @@
-﻿namespace OnlineCosmeticShop.Infrastructure
+﻿namespace OnlineCosmeticShop.Infrastructures
 {
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Routing;

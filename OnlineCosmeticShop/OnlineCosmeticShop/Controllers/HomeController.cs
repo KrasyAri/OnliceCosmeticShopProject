@@ -3,25 +3,32 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
     using OnlineCosmeticShop.Models;
-    using System;
-    using System.Collections.Generic;
+    using OnlineCosmeticShop.Models.Home;
+    using OnlineCosmeticShop.Services.Prodicts;
     using System.Diagnostics;
     using System.Linq;
-    using System.Threading.Tasks;
 
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IProductService products;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+        public HomeController(IProductService products) => this.products = products;
 
         public IActionResult Index()
         {
-            return View();
+            var newestProducts = this.products
+                .NewestProducts()
+                .ToList();
+
+
+            return View(new IndexViewModel
+            {
+                Products = newestProducts
+            });
+
         }
+
+        public IActionResult Contacts() => View();
 
         public IActionResult Privacy()
         {

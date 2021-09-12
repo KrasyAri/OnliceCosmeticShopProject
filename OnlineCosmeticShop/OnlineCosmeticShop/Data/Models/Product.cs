@@ -42,5 +42,7 @@
         public ProductType ProductType { get; set; }
 
         public Category Category { get; set; }
+
+        public bool InStock { get; init; }
     }
 }

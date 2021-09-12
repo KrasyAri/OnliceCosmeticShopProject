@@ -10,7 +10,7 @@ using OnlineCosmeticShop.Data;
 namespace OnlineCosmeticShop.Data.Migrations
 {
     [DbContext(typeof(OnlineShopDbContext))]
-    [Migration("20210912125059_TablesCreated")]
+    [Migration("20210912142457_TablesCreated")]
     partial class TablesCreated
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -304,6 +304,9 @@ namespace OnlineCosmeticShop.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("InStock")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(60)
@@ -430,6 +433,9 @@ namespace OnlineCosmeticShop.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
+
+                    b.Property<int>("ShippingDetailsId")
+                        .HasColumnType("int");
 
                     b.HasDiscriminator().HasValue("User");
                 });

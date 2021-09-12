@@ -1,11 +1,7 @@
 ﻿namespace OnlineCosmeticShop.Data.Models
 {
     using Microsoft.AspNetCore.Identity;
-    using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Threading.Tasks;
 
     using static DataConstants.User;
 
@@ -18,5 +14,7 @@
         [Required]
         [MaxLength(DefaultMaxLength)]
         public string LastName { get; set; }
+
+        public int ShippingDetailsId { get; set; }
     }
 }

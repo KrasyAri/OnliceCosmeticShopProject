@@ -10,7 +10,9 @@ namespace OnlineCosmeticShop
     using Microsoft.Extensions.Hosting;
     using OnlineCosmeticShop.Data;
     using OnlineCosmeticShop.Data.Models;
-    using OnlineCosmeticShop.Infrastructure;
+    using OnlineCosmeticShop.Infrastructures;
+    using OnlineCosmeticShop.Services.Prodicts;
+    using OnlineCosmeticShop.Services.TradePartners;
 
     public class Startup
     {
@@ -38,8 +40,8 @@ namespace OnlineCosmeticShop
                 })
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<OnlineShopDbContext>();
-
-           // services.AddAutoMapper(typeof(Startup));
+            
+            services.AddAutoMapper(typeof(Startup));
 
             services
                 .AddControllersWithViews(options =>
@@ -47,8 +49,8 @@ namespace OnlineCosmeticShop
                     options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
                 });
 
-            //services.AddTransient<IProductService, ProductService>();
-            //services.AddTransient<ITradePartnerService, TradePartnerService>();
+            services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<ITradePartnerService, TradePartnerService>();
             //services.AddTransient<ICartService, CartService>();
             //services.AddTransient<IOrderService, OrderService>();
             //services.AddTransient<IShippingDetailsService, ShippingDetailsService>();

@@ -302,6 +302,9 @@ namespace OnlineCosmeticShop.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("InStock")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(60)
@@ -428,6 +431,9 @@ namespace OnlineCosmeticShop.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
+
+                    b.Property<int>("ShippingDetailsId")
+                        .HasColumnType("int");
 
                     b.HasDiscriminator().HasValue("User");
                 });
